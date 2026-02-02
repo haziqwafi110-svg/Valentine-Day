@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine?</title>
+    <style>
+        body {
+            background-color: #ffe6e6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            margin: 0;
+            overflow: hidden;
+        }
+        #container {
+            text-align: center;
+            background: white;
+            padding: 40px;
+            border-radius: 30px;
+            box-shadow: 0 15px 35px rgba(255, 77, 109, 0.2);
+            max-width: 500px;
+            transition: all 0.5s ease;
+        }
+        .valentine-img {
+            width: 200px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+        h1 { color: #ff4d6d; font-size: 1.8rem; }
+        .buttons {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+        #yes {
+            background-color: #ff4d6d;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: transform 0.2s ease;
+            z-index: 10; /* Keep it on top */
+        }
+        #no {
+            background-color: #808080;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            position: absolute;
+        }
+        /* Hidden state for the success message */
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+
+    <div id="container">
+        <div id="quiz-ui">
+            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpueXNqZ2J6bmZ6Z3Z6Z3Z6Z3Z6Z3Z6Z3Z6Z3Z6Z3Z6Jm09Zw/MDJ9Ibh3vUzPBK0wSt/giphy.gif" id="main-img" class="valentine-img">
+            <h1 id="question">Will you be my Valentine? 💖</h1>
+            <div class="buttons">
+                <button id="yes">Yes</button>
+                <button id="no">No</button>
+            </div>
+        </div>
+
+        <div id="success-ui" class="hidden">
+            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpueXNqZ2J6bmZ6Z3Z6Z3Z6Z3Z6Z3Z6Z3Z6Z3Z6Jm09Zw/KztT2c4u8mYYUiMKdJ/giphy.gif" class="valentine-img">
+            <h1>YAY! See you on the 14th! 🥰🌹</h1>
+            <p>I knew you couldn't resist!</p>
+        </div>
+    </div>
+
+    <script>
+        const noBtn = document.getElementById('no');
+        const yesBtn = document.getElementById('yes');
+        const quizUI = document.getElementById('quiz-ui');
+        const successUI = document.getElementById('success-ui');
+        
+        let scale = 1;
+
+        // No button avoids the mouse and grows the Yes button
+        noBtn.addEventListener('mouseover', () => {
+            const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+            const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+            noBtn.style.left = x + 'px';
+            noBtn.style.top = y + 'px';
+
+            scale += 0.4; // Grows faster!
+            yesBtn.style.transform = `scale(${scale})`;
+        });
+
+        // When Yes is clicked, swap the screens
+        yesBtn.addEventListener('click', () => {
+            quizUI.classList.add('hidden');
+            successUI.classList.remove('hidden');
+            noBtn.style.display = 'none'; // Hide the stray No button
+        });
+    </script>
+
+</body>
+</html>
