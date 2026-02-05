@@ -53,17 +53,16 @@
         }
         #no { 
             background-color: #999; 
-            position: relative;
         }
     </style>
 </head>
 <body>
     <div id="container">
-        <img class="valentine-img" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHIwdW80eWp6N2M0bmx6bmI0bmV6bmI0bmV6bmI0bmV6bmI0bmV6biZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/c7SuT8p7YI13H8X57r/giphy.gif" alt="Valentine Bears">
+        <img id="main-img" class="valentine-img" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHIwdW80eWp6N2M0bmx6bmI0bmV6bmI0bmV6bmI0bmV6bmI0bmV6biZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/c7SuT8p7YI13H8X57r/giphy.gif" alt="Valentine Bears">
         
-        <h1>Will you be my Valentine? 💖</h1>
+        <h1 id="question">Will you be my Valentine? 💖</h1>
         
-        <div class="buttons">
+        <div id="button-group" class="buttons">
             <button id="yes" onclick="celebrate()">Yes</button>
             <button id="no" onmouseover="moveButton()">No</button>
         </div>
@@ -72,7 +71,6 @@
     <script>
         function moveButton() {
             const noBtn = document.getElementById('no');
-            // Calculates random position within the screen
             const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
             const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
             
@@ -82,8 +80,14 @@
         }
 
         function celebrate() {
-            alert('Yay! See you on Valentine\'s Day! ❤️');
-            // Optional: You can redirect to a thank you page here
+            // Changes the image to a happy celebration GIF
+            document.getElementById('main-img').src = "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmZpZ3JleHoxeHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/T86i6yDyKQzONEMVKd/giphy.gif";
+            
+            // Updates the text
+            document.getElementById('question').innerHTML = "Yay! See you on Valentine's Day! ❤️";
+            
+            // Hides the buttons
+            document.getElementById('button-group').style.display = "none";
         }
     </script>
 </body>
