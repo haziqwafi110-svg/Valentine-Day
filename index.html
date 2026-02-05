@@ -37,75 +37,38 @@
             align-items: center;
             gap: 20px;
         }
-        #yes {
+        #yes, #no {
             background-color: #ff4d6d;
             color: white;
             border: none;
             padding: 15px 30px;
-            border-radius: 10px;
-            cursor: pointer;
             font-size: 1.2rem;
-            transition: transform 0.2s ease;
-            z-index: 10; /* Keep it on top */
-        }
-        #no {
-            background-color: #808080;
-            color: white;
-            border: none;
-            padding: 10px 20px;
             border-radius: 10px;
             cursor: pointer;
-            position: absolute;
+            transition: transform 0.2s;
         }
-        /* Hidden state for the success message */
-        .hidden { display: none; }
+        #no { background-color: #999; } /* Gray color for No */
     </style>
 </head>
 <body>
-
     <div id="container">
-        <div id="quiz-ui">
-            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpueXNqZ2J6bmZ6Z3Z6Z3Z6Z3Z6Z3Z6Z3Z6Z3Z6Z3Z6Jm09Zw/MDJ9Ibh3vUzPBK0wSt/giphy.gif" id="main-img" class="valentine-img">
-            <h1 id="question">Will you be my Valentine? 💖</h1>
-            <div class="buttons">
-                <button id="yes">Yes</button>
-                <button id="no">No</button>
-            </div>
-        </div>
-
-        <div id="success-ui" class="hidden">
-            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpueXNqZ2J6bmZ6Z3Z6Z3Z6Z3Z6Z3Z6Z3Z6Z3Z6Jm09Zw/KztT2c4u8mYYUiMKdJ/giphy.gif" class="valentine-img">
-            <h1>YAY! See you on the 14th! 🥰🌹</h1>
-            <p>I knew you couldn't resist!</p>
+        <img class="valentine-img" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpueGZ3YjB0eHByZzR4bm93YXN6eHh4eHh4eHh4eHh4eHh4eHh4JnBvcz1jJm92ZXJ0aW1lPXRydWUmY3Q9cw/L2z7uYM5qnEDu/giphy.gif" alt="Panda">
+        <h1>Will you be my Valentine? 💖</h1>
+        <div class="buttons">
+            <button id="yes" onclick="alert('Yay! ❤️')">Yes</button>
+            <button id="no" onmouseover="moveButton()">No</button>
         </div>
     </div>
 
     <script>
-        const noBtn = document.getElementById('no');
-        const yesBtn = document.getElementById('yes');
-        const quizUI = document.getElementById('quiz-ui');
-        const successUI = document.getElementById('success-ui');
-        
-        let scale = 1;
-
-        // No button avoids the mouse and grows the Yes button
-        noBtn.addEventListener('mouseover', () => {
+        function moveButton() {
+            const noBtn = document.getElementById('no');
             const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
             const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+            noBtn.style.position = 'absolute';
             noBtn.style.left = x + 'px';
             noBtn.style.top = y + 'px';
-
-            scale += 0.4; // Grows faster!
-            yesBtn.style.transform = `scale(${scale})`;
-        });
-
-        // When Yes is clicked, swap the screens
-        yesBtn.addEventListener('click', () => {
-            quizUI.classList.add('hidden');
-            successUI.classList.remove('hidden');
-            noBtn.style.display = 'none'; // Hide the stray No button
-        });
+        }
     </script>
-
 </body>
 </html>
