@@ -23,13 +23,17 @@
             box-shadow: 0 15px 35px rgba(255, 77, 109, 0.2);
             max-width: 500px;
             transition: all 0.5s ease;
+            position: relative;
         }
         .valentine-img {
             width: 200px;
             border-radius: 15px;
             margin-bottom: 20px;
         }
-        h1 { color: #ff4d6d; font-size: 1.8rem; }
+        h1 { 
+            color: #ff4d6d; 
+            font-size: 1.8rem; 
+        }
         .buttons {
             margin-top: 30px;
             display: flex;
@@ -45,17 +49,22 @@
             font-size: 1.2rem;
             border-radius: 10px;
             cursor: pointer;
-            transition: transform 0.2s;
+            transition: all 0.2s;
         }
-        #no { background-color: #999; } /* Gray color for No */
+        #no { 
+            background-color: #999; 
+            position: relative;
+        }
     </style>
 </head>
 <body>
     <div id="container">
-        <img class="valentine-img" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpueGZ3YjB0eHByZzR4bm93YXN6eHh4eHh4eHh4eHh4eHh4eHh4JnBvcz1jJm92ZXJ0aW1lPXRydWUmY3Q9cw/L2z7uYM5qnEDu/giphy.gif" alt="Panda">
+        <img class="valentine-img" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHIwdW80eWp6N2M0bmx6bmI0bmV6bmI0bmV6bmI0bmV6bmI0bmV6biZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/c7SuT8p7YI13H8X57r/giphy.gif" alt="Valentine Bears">
+        
         <h1>Will you be my Valentine? 💖</h1>
+        
         <div class="buttons">
-            <button id="yes" onclick="alert('Yay! ❤️')">Yes</button>
+            <button id="yes" onclick="celebrate()">Yes</button>
             <button id="no" onmouseover="moveButton()">No</button>
         </div>
     </div>
@@ -63,11 +72,18 @@
     <script>
         function moveButton() {
             const noBtn = document.getElementById('no');
+            // Calculates random position within the screen
             const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
             const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+            
             noBtn.style.position = 'absolute';
             noBtn.style.left = x + 'px';
             noBtn.style.top = y + 'px';
+        }
+
+        function celebrate() {
+            alert('Yay! See you on Valentine\'s Day! ❤️');
+            // Optional: You can redirect to a thank you page here
         }
     </script>
 </body>
