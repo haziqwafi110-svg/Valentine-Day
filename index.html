@@ -30,10 +30,7 @@
             border-radius: 15px;
             margin-bottom: 20px;
         }
-        h1 { 
-            color: #ff4d6d; 
-            font-size: 1.8rem; 
-        }
+        h1 { color: #ff4d6d; font-size: 1.8rem; }
         .buttons {
             margin-top: 30px;
             display: flex;
@@ -51,14 +48,12 @@
             cursor: pointer;
             transition: all 0.2s;
         }
-        #no { 
-            background-color: #999; 
-        }
+        #no { background-color: #999; }
     </style>
 </head>
 <body>
     <div id="container">
-        <img id="main-img" class="valentine-img" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHIwdW80eWp6N2M0bmx6bmI0bmV6bmI0bmV6bmI0bmV6bmI0bmV6biZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/c7SuT8p7YI13H8X57r/giphy.gif" alt="Valentine Bears">
+        <img id="main-img" class="valentine-img" src="IMG_8058.jpeg" alt="Invitation Image">
         
         <h1 id="question">Will you be my Valentine? 💖</h1>
         
@@ -73,20 +68,16 @@
             const noBtn = document.getElementById('no');
             const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
             const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
-            
             noBtn.style.position = 'absolute';
             noBtn.style.left = x + 'px';
             noBtn.style.top = y + 'px';
         }
 
         function celebrate() {
-            // Changes the image to a happy celebration GIF
-            document.getElementById('main-img').src = "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmZpZ3JleHoxeHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/T86i6yDyKQzONEMVKd/giphy.gif";
+            // SECOND IMAGE: Your uploaded GIF
+            document.getElementById('main-img').src = "IMG_8061.gif";
             
-            // Updates the text
             document.getElementById('question').innerHTML = "Yay! See you on Valentine's Day! ❤️";
-            
-            // Hides the buttons
             document.getElementById('button-group').style.display = "none";
         }
     </script>
